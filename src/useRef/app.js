@@ -1,7 +1,8 @@
-
+import { useRef } from "react"
+import Button from  'Bootstrap'
 //allows creation of object that will keep reference between renders
 //mutable values do not trigger a re-render when he state changes
-function App(){
+export default function App(){
     
     const count = useRef(0)
     return (
@@ -11,7 +12,7 @@ function App(){
         </Button>
     )
 // useRef used to grab native HTML  elements from the DOM(JSX)
-function Apps() {
+ function Apps() {
 
     const btn = useRef(null)
     //referencing the click function

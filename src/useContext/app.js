@@ -1,7 +1,7 @@
-import { createContext ,useContext} from "react"
-import React from 'react';
+/*import { createContext ,useContext} from "react"
 
-//reating an object
+
+//creating an object
 const moods = {
     happy: '😄',
     sad: '😢'
@@ -10,7 +10,7 @@ const moods = {
 //sharing current moods across multiple disconnected components
 //one part of he app might b happy so we use context provider to scope the happy mood
 const MoodContext = createContext(moods);
-function App(props){
+export default function App(moods){
     return (
 <MoodContext.Provider values={moods.happy}>
   <MoodEmoji/>
@@ -24,4 +24,27 @@ function MoodEmoji(){
     return <MoodContext.Consumer>
          {mood => <p>{mood}</p>}
     </MoodContext.Consumer>
+}
+*/
+ 
+import { createContext, useContext } from "react";
+
+const moods = {
+  happy: '😄',
+  sad: '😢'
+};
+
+const MoodContext = createContext(moods);
+
+export default function App() {
+  return (
+    <MoodContext.Provider value={moods.happy}>
+      <MoodEmoji />
+    </MoodContext.Provider>
+  );
+}
+
+function MoodEmoji() {
+  const mood = useContext(MoodContext);
+  return <p>{mood}</p>;
 }

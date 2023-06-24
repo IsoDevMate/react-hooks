@@ -1,11 +1,11 @@
 //determines how to compute the next state
 //array of two values returned 
 //1.reactive state to be shown on the UI
-//2.Instead of a function that updates the state we use one that dispatches an action(bj of any type)
+//2.Instead of a function that updates the state we use one that dispatches an action obj of any type)
 //unction determines how the next state should be computed based on the current state and the dispatched action.
-import React, { useReducer } from "react";
+import { useReducer } from "react";
 
-function reducer(state, action) {
+function AppReducer(state, action) {
   switch (action.type) {
     case "increment":
       return state + 1;
@@ -17,7 +17,7 @@ function reducer(state, action) {
 }
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(AppReducer, 0);
   return (
     <>
       Count: {state}
